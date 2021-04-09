@@ -1058,6 +1058,8 @@ class TikTokApi:
         custom_did = kwargs.get("custom_did", None)
         if "@" in url and "/video/" in url:
             post_id = url.split("/video/")[1].split("?")[0]
+        elif "m.tiktok" in url and "/v/" in url:
+            post_id = url.split("/v/")[1].split(".html")[0]
         else:
             raise Exception(
                 "URL format not supported. Below is an example of a supported url.\n"
